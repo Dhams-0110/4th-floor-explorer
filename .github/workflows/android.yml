@@ -35,7 +35,14 @@ jobs:
       run: npm run build
 
     - name: Sync Web Assets to Capacitor
-      run: npx cap sync android
+      run: npx cap sync android > sync_log.txt 2>&1
+      continue-on-error: true
+
+    - name: Upload Sync Logs on Failure
+      uses: actions/upload-artifact@v4
+      with:
+        name: sync-log
+        path: sync_log.txt
 
     - name: Grant Execute Permission for Gradlew
       run: chmod +x android/gradlew

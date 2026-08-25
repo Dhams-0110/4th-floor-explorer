@@ -25,6 +25,9 @@ jobs:
         distribution: 'zulu'
         java-version: '17'
 
+    - name: Set up Android SDK
+      uses: android-actions/setup-android@v3
+
     - name: Install Web Dependencies
       run: npm install
 
@@ -33,9 +36,6 @@ jobs:
 
     - name: Sync Web Assets to Capacitor
       run: npx cap sync android
-
-    - name: Set up Android SDK
-      uses: android-actions/setup-android@v3
 
     - name: Grant Execute Permission for Gradlew
       run: chmod +x android/gradlew

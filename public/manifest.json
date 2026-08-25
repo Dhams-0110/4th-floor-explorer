@@ -1,0 +1,24 @@
+{
+  "name": "4th Floor Explorer",
+  "short_name": "Floor4Explorer",
+  "description": "3D Interactive Walkthrough of College Floor",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#07162c",
+  "theme_color": "#0B2545",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

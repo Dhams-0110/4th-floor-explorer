@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>4th Floor Explorer</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/style.css">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#0B2545">
+    <meta name="description" content="3D interactive walkthrough of the college 4th floor. Overview and first-person walk mode.">
+  </head>
+  <body>
+    <!-- Fullscreen Canvas -->
+    <canvas id="webgl" class="webgl"></canvas>
+
+    <!-- Loading Overlay -->
+    <div id="loader" class="loader-overlay">
+      <div class="spinner"></div>
+      <h1>Loading 4th Floor Explorer...</h1>
+      <p>Preparing 3D Walkthrough</p>
+    </div>
+
+    <!-- UI Overlay Header -->
+    <header class="app-header">
+      <div class="logo-container">
+        <div class="logo-icon">4</div>
+        <div class="logo-text">
+          <h1>4th Floor Explorer</h1>
+          <p>Interactive 3D Walkthrough</p>
+        </div>
+      </div>
+      <div id="current-room-badge" class="badge">Overview Mode</div>
+    </header>
+
+    <!-- Mode Control Dock -->
+    <div class="control-dock">
+      <button id="btn-overview" class="btn active">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M480-480q33 0 56.5-23.5T560-560q0-33-23.5-56.5T480-640q-33 0-56.5 23.5T400-560q0 33 23.5 56.5T480-480Zm0 294q122-112 181-203.5T720-552q0-109-69.5-178.5T480-800q-101 0-170.5 69.5T240-552q0 71 59 162.5T480-186Zm0 106Q319-215 239.5-328.5T160-552q0-150 99.5-239T480-880q161 0 260.5 89T840-552q0 115-79.5 228.5T480-80Zm0-472Z"/></svg>
+        Overview
+      </button>
+      <button id="btn-walk" class="btn">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="m560-80-66-154-106-52v-114l112-112q17-17 38-23t44-2q27 5 46.5 21.5T652-472l22 88q12 48 46 81.5t80 36.5v80q-63-4-114-36.5T606-310l-16-62-70-34 38-84 82 82v228H560ZM200-240v-80h160v80H200Zm200-120v-80h240v80H400Zm120-300q-25 0-42.5-17.5T460-720q0-25 17.5-42.5T520-780q25 0 42.5 17.5T580-720q0 25-17.5 42.5T520-660Z"/></svg>
+        Walk Mode
+      </button>
+    </div>
+
+    <!-- Walk Mode HUD Controls (for touch devices) -->
+    <div id="walk-hud" class="walk-hud hidden">
+      <div class="hud-instructions">Drag screen to look around</div>
+      <div class="hud-nav-buttons">
+        <button id="hud-go-back" class="btn-hud" title="Go to Corridor">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 240v480H520v-240h-80v240H160Zm320-350Z"/></svg>
+          Go Back
+        </button>
+      </div>
+    </div>
+
+    <!-- Room Details Panel -->
+    <div id="room-card" class="room-card hidden">
+      <div class="card-handle"></div>
+      <div class="card-content">
+        <h2 id="room-title">Foyer</h2>
+        <p id="room-desc">This is the main entrance area of the 4th Floor. Click the walk mode button to explore it first-person.</p>
+        <button id="btn-enter-room" class="btn-primary">Enter Room (Walk)</button>
+      </div>
+    </div>
+
+    <!-- Main JS Application script module -->
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
